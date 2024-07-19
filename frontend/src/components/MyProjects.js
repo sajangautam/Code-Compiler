@@ -36,6 +36,7 @@ const MyProjects = ({ darkMode, toggleDarkMode }) => {
 
     const openProject = (projectId) => {
         navigate('/', { state: { projectId } });
+		window.location.reload();
     };
 
     const deleteProject = async (projectId, projectName) => {

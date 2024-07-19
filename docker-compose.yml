@@ -1,32 +1,26 @@
 version: '3.8'
 
 services:
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    ports:
-      - "3000:80"
-    depends_on:
-      - backend
-
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    build: ./backend
     ports:
       - "5000:5000"
-    environment:
-      MONGO_URL: mongodb://mongo:27017/mydatabase
-    depends_on:
-      - mongo
-
-  mongo:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
     volumes:
-      - mongo-data:/data/db
+      - ./backend:/app
+    networks:
+      - mynetwork
+    environment:
+      MONGO_URI: mongodb+srv://sajangautam7090:So2EWZHtRBOjkivF@onlineide.363wtkb.mongodb.net/?retryWrites=true&w=majority&appName=onlineIDE
 
-volumes:
-  mongo-data:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    volumes:
+      - ./frontend:/app
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge

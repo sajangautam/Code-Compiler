@@ -1,20 +1,20 @@
-# Stage 1: Build the React app
-FROM node:16 as build
+# Stage 1: Build React app
+FROM node:14 AS build
 
-WORKDIR /app
-
-COPY package.json package-lock.json ./
+WORKDIR /usr/src/app
+COPY package*.json ./
 RUN npm install
-
-COPY . ./
+COPY . .
 RUN npm run build
 
-# Stage 2: Serve the React app using nginx
+# Stage 2: Serve app with nginx
 FROM nginx:alpine
 
-COPY --from=build /app/build /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copy custom nginx configuration file
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copy build output from the previous stage
+COPY --from=build /usr/src/app/build /usr/share/nginx/html
 
 EXPOSE 80
-
 CMD ["nginx", "-g", "daemon off;"]
