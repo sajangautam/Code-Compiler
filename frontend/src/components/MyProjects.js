@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
-import deleteIcon from './delete.png'; // Import delete.png
-import './MyProjects.css'; // Import CSS for MyProjects
+import deleteIcon from './delete.png'; 
+import './MyProjects.css'; 
 
 const MyProjects = ({ darkMode, toggleDarkMode }) => {
     const { currentUser } = useAuth();
@@ -11,7 +11,6 @@ const MyProjects = ({ darkMode, toggleDarkMode }) => {
     const [projectNames, setProjectNames] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    // Define fetchProjectNames inside a useCallback to memoize it
     const fetchProjectNames = useCallback(async () => {
         setLoading(true);
         try {
@@ -30,7 +29,7 @@ const MyProjects = ({ darkMode, toggleDarkMode }) => {
         if (!currentUser) {
             navigate('/signin');
         } else {
-            fetchProjectNames(); // Call fetchProjectNames here
+            fetchProjectNames(); 
         }
     }, [currentUser, navigate, fetchProjectNames]);
 
@@ -48,7 +47,6 @@ const MyProjects = ({ darkMode, toggleDarkMode }) => {
                 await axios.delete(`http://localhost:5000/api/projects/${projectId}`);
                 // Update state to reflect deletion
                 setProjectNames(projectNames.filter(project => project._id !== projectId));
-                // Show alert upon successful deletion
                 window.alert(`'${projectName}' deleted successfully!`);
             } catch (error) {
                 console.error('Error deleting project:', error);

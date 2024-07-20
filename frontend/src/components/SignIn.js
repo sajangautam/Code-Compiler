@@ -3,7 +3,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebaseConfig';
 import './SignIn.css';
 import { useAuth } from '../contexts/AuthContext';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom'; 
 
 const SignIn = ({ darkMode }) => {
     const [email, setEmail] = useState('');

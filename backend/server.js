@@ -30,7 +30,7 @@ const projectSchema = new mongoose.Schema({
 
 const Project = mongoose.model('Project', projectSchema);
 
-// Define route to save project
+// route to save project
 app.post('/api/saveProject', async (req, res) => {
     const { projectName, code, language, email } = req.body;
 
@@ -60,7 +60,7 @@ app.post('/api/saveProject', async (req, res) => {
 });
 
 
-// Define route to get projects by email
+// route to get projects by email
 app.get('/api/myprojects', async (req, res) => {
     const email = req.query.email; // Get email from query parameters
 
@@ -78,7 +78,7 @@ app.get('/api/myprojects', async (req, res) => {
     }
 });
 
-// Define route to get project by ID
+// route to get project by ID
 app.get('/api/projects/:id', async (req, res) => {
     const { id } = req.params;
 
@@ -96,7 +96,7 @@ app.get('/api/projects/:id', async (req, res) => {
     }
 });
 
-// Define route to delete a project by ID
+// route to delete a project by ID
 app.delete('/api/projects/:id', async (req, res) => {
     const { id } = req.params;
 

@@ -210,7 +210,6 @@ const CodeEditor = ({ darkMode, toggleDarkMode }) => {
         }
     } catch (error) {
         console.error('Error saving project:', error);
-        //alert('Failed to save project');
     }
 };
 

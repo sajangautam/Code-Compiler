@@ -52,7 +52,6 @@ function Navigation() {
     const handleLogout = async () => {
         try {
             await logout();
-            // No need for window.location.href redirection
 
         } catch (err) {
             console.error("Failed to log out", err);

@@ -7,23 +7,23 @@
 Step 1:
 		Command Prompt 1:
 
-		cd "C:\myproject\backend"
+		cd "C:\my online code compiler\backend"
 
-		C:\myproject\backend>node server.js
+		C:\my online code compiler\backend>node server.js
 
 
 Step 2:
 		Command Prompt 2:
 
-		cd "C:\myproject\frontend"
+		cd "C:\my online code compiler\frontend"
 		
 		if opened from windows command prompt:
-			C:\myproject\frontend>set NODE_OPTIONS=--openssl-legacy-provider
+			C:\my online code compiler\frontend>set NODE_OPTIONS=--openssl-legacy-provider
 		
 		if opened from vs code terminal:
-			C:\myproject\frontend>$env:NODE_OPTIONS = "--openssl-legacy-provider"
+			C:\my online code compiler\frontend>$env:NODE_OPTIONS = "--openssl-legacy-provider"
 
-		C:\myproject\frontend>npm start
+		C:\my online code compiler\frontend>npm start
 		
 		
 Step 3:
@@ -33,8 +33,8 @@ Step 3:
 
 
 ----------------------------------------------------------------------- METHOD 2: USING DOCKER ----------------------------------------------------
-STEP 1: C:\myproject>docker-compose build
-STEP 2: C:\myproject>docker-compose up
+STEP 1: C:\my online code compiler>docker-compose build
+STEP 2: C:\my online code compiler>docker-compose up
 STEP 3: Go to google and open this address: http://localhost:3000/
 
 

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../firebaseConfig';
-import './SignUp.css'; // Import your CSS file for SignUp
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import './SignUp.css'; 
+import { Link } from 'react-router-dom'; 
 
 const SignUp = ({ darkMode }) => {
     const [firstName, setFirstName] = useState('');
